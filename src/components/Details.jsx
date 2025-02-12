@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 const BookDetails = () => {
   const { id } = useParams();
   const [oneBook, setOneBook] = useState({});
-  console.log(oneBook)
+
   useEffect(() => {
     const getBookDetail = async() => {
       try {
@@ -32,13 +32,15 @@ const BookDetails = () => {
     
       {
         oneBook.id ? 
-        <section>
-          <h2>Title: { oneBook.title }</h2>
-          <h2>Author: { oneBook.author }</h2>
-          <h3>Is Available: { isAvailable() }</h3>
-          <img src={ oneBook.coverimage} alt="Book Cover" />
-          <p>Description: { oneBook.description }</p>
-        </section>
+          <div className="book-container">
+            <section className="book-card">
+              <h2>Title: { oneBook.title }</h2>
+              <h2>Author: { oneBook.author }</h2>
+              <h3>Is Available: { isAvailable() }</h3>
+              <img src={ oneBook.coverimage} alt="Book Cover" />
+              <p>Description: { oneBook.description }</p>
+            </section>
+          </div>
         :
         null
       }
