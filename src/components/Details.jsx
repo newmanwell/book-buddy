@@ -11,7 +11,7 @@ const BookDetails = () => {
         const respsonse = await fetch(`https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/books/${id}`);
         const bookObj = await respsonse.json();
         const bookDetail = bookObj.book;
-        console.log(bookDetail);
+        setOneBook(bookDetail);
       } catch(error) {
         console.log(error);
       }
@@ -22,7 +22,20 @@ const BookDetails = () => {
 
 
   return (
-    <h2>The Details</h2>
+    <>
+    
+      {
+        oneBook.id ? 
+        <section>
+          <h2>Title: { oneBook.title }</h2>
+          <h2>Author: { oneBook.author }</h2>
+          <img src={ oneBook.coverimage} alt="Book Cover"/>
+          <p>Description: { oneBook.description }</p>
+        </section>
+        :
+        null
+      }
+    </>
   )
 }
 

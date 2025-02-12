@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   const [allBooks, setAllBooks] = useState([])
-  console.log(allBooks);
+
   useEffect(() => {
     const getBooks = async() => {
       try {
