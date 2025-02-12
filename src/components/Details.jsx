@@ -13,7 +13,7 @@ const BookDetails = () => {
         const bookDetail = bookObj.book;
         setOneBook(bookDetail);
       } catch(error) {
-        console.log(error);
+        alert(error);
       }
     }
     getBookDetail();

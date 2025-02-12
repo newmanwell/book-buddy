@@ -12,7 +12,7 @@ const Home = () => {
         const booksArray = booksObj.books;
         setAllBooks(booksArray)
       } catch(error) {
-        console.log(error);
+        alert(error);
       }
     }
     getBooks();
