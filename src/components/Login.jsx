@@ -27,6 +27,13 @@ const Login = () => {
       console.log(error);
     }
   }
+
+  const getUserInfo = async() => {
+    console.log('MyToken:', token);
+    
+    const response = await fetch(`https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/users/me`);
+    
+  }
   
   return (
     <>
@@ -36,6 +43,7 @@ const Login = () => {
         <input placeholder="password" type="password" onChange={(event) => setPassword(event.target.value)} value={ password } />
         <button>Login</button>
       </form>
+      <button onClick={ getUserInfo }>See Profile</button>
     </>
   )
 }
