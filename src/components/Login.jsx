@@ -31,8 +31,18 @@ const Login = () => {
   const getUserInfo = async() => {
     console.log('MyToken:', token);
     
-    const response = await fetch(`https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/users/me`);
-    
+    try {
+      const response = await fetch(`https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/users/me`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+          }
+        });
+        const userInfo = await response.json();
+        console.log(userInfo);
+      } catch(error) {
+        console.log(error);
+      }
   }
   
   return (
@@ -44,6 +54,7 @@ const Login = () => {
         <button>Login</button>
       </form>
       <button onClick={ getUserInfo }>See Profile</button>
+      
     </>
   )
 }
