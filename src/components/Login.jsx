@@ -10,8 +10,7 @@ const Login = () => {
   const [ lastName, setLastName ] = useState("");
   const [ dispalyEmail, setDispalyEmail ] = useState("");
   const [ checkedOutBooks, setCheckedOutBooks ] = useState([]);
-  console.log(token);
-  console.log(firstName);
+
   const loggingIn = async(event) => {
     event.preventDefault();
 
