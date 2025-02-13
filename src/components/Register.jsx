@@ -22,7 +22,7 @@ const Register = () => {
           password: password
         })
       });
-      const newUser = response.json();
+      const newUser = await response.json();
       setFirstName("");
       setLastName("");
       setEmail("");
