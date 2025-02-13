@@ -70,7 +70,7 @@ const Login = () => {
             <button onClick={ getUserInfo }>See Profile</button>
             <h2>Name: { firstName } { lastName }</h2> 
             <h2>Email: { dispalyEmail }</h2>
-            <h3>Checked out books: { checkedOutBooks }</h3>
+            <h3>Checked out books: { checkedOutBooks.title }</h3>
           </section>
         </>
         :
