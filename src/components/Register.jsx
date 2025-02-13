@@ -22,24 +22,27 @@ const Register = () => {
           password: password
         })
       });
-      const newUser = response.json();
+      const newUser = await response.json();
       setFirstName("");
       setLastName("");
       setEmail("");
       setPassword("");
     } catch(error) {
-        console.log(error);
+        alert(error);
       }
   }
 
   return (
-    <form onSubmit={ addUser }>
-      <input placeholder="first name" onChange={(event) => {setFirstName(event.target.value)}} value={ firstName } />
-      <input placeholder="last name" onChange={(event) => {setLastName(event.target.value)}} value={ lastName } />
-      <input placeholder="email" type="email" onChange={(event) => {setEmail(event.target.value)}} value={ email } />
-      <input placeholder="password" type="password" onChange={(event) => {setPassword(event.target.value)}} value={ password } />
-      <button>Register</button>
-    </form>
+    <>
+      <h2>Create an account</h2>
+      <form onSubmit={ addUser }>
+        <input placeholder="first name" onChange={(event) => {setFirstName(event.target.value)}} value={ firstName } />
+        <input placeholder="last name" onChange={(event) => {setLastName(event.target.value)}} value={ lastName } />
+        <input placeholder="email" type="email" onChange={(event) => {setEmail(event.target.value)}} value={ email } />
+        <input placeholder="password" type="password" onChange={(event) => {setPassword(event.target.value)}} value={ password } />
+        <button>Register</button>
+      </form>
+    </>
   )
 }
 
