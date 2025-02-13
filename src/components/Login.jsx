@@ -27,6 +27,8 @@ const Login = () => {
       });
       const userToken = await response.json();
       setToken(userToken.token);
+      // store the token to local storage
+      localStorage.setItem('token', userToken.token);
       setEmail("");
       setPassword("");
     } catch(error) {
