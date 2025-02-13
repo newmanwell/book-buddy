@@ -60,10 +60,11 @@ const Login = () => {
         <input placeholder="password" type="password" onChange={(event) => setPassword(event.target.value)} value={ password } />
         <button>Login</button>
       </form>
-      <button onClick={ getUserInfo }>See Profile</button>
+      
       {
         token ? 
         <>
+          <button onClick={ getUserInfo }>See Profile</button>
           <h2>Name: { firstName } { lastName }</h2> 
           <h2>Email: { dispalyEmail }</h2>
           <h3>Checked out books: { checkedOutBooks }</h3>
