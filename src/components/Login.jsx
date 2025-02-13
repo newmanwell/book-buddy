@@ -64,10 +64,12 @@ const Login = () => {
       {
         token ? 
         <>
-          <button onClick={ getUserInfo }>See Profile</button>
-          <h2>Name: { firstName } { lastName }</h2> 
-          <h2>Email: { dispalyEmail }</h2>
-          <h3>Checked out books: { checkedOutBooks }</h3>
+          <section className="details-button">
+            <button onClick={ getUserInfo }>See Profile</button>
+            <h2>Name: { firstName } { lastName }</h2> 
+            <h2>Email: { dispalyEmail }</h2>
+            <h3>Checked out books: { checkedOutBooks }</h3>
+          </section>
         </>
         :
         null

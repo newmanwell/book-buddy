@@ -19,17 +19,20 @@ const Home = () => {
   }, []);
 
   return (
-    <section className="titles">
-      {
-        allBooks.map((oneBook) => {
-          return (
-            <Link to={`/details/${oneBook.id}`} key={oneBook.id}>
-              <h2>{ oneBook.title }</h2>
-            </Link>
-          )
-        })
-      }
-    </section>
+    <>
+    <h2>Our Books</h2>
+      <section className="titles">
+        {
+          allBooks.map((oneBook) => {
+            return (
+              <Link to={`/details/${oneBook.id}`} key={oneBook.id}>
+                <h2>{ oneBook.title }</h2>
+              </Link>
+            )
+          })
+        }
+      </section>
+    </>
   )
 }
 
