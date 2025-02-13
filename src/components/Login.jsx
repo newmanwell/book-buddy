@@ -1,9 +1,15 @@
 import { useState } from "react";
 
 const Login = () => {
+  // for account creation
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
   const [ token, setToken ] = useState("");
+  // for displaying account info
+  const [ firstName, setFirstName] = useState("");
+  const [ lastName, setLastName ] = useState("");
+  const [ dispalyEmail, setDispalyEmail ] = useState("");
+  const [ checkedOutBooks, setCheckedOutBooks ] = useState([]);
 
   const loggingIn = async(event) => {
     event.preventDefault();
@@ -24,13 +30,11 @@ const Login = () => {
       setEmail("");
       setPassword("");
     } catch(error) {
-      console.log(error);
+      alert(error);
     }
   }
 
   const getUserInfo = async() => {
-    console.log('MyToken:', token);
-    
     try {
       const response = await fetch(`https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/users/me`, {
         headers: {
@@ -39,9 +43,14 @@ const Login = () => {
           }
         });
         const userInfo = await response.json();
+        setFirstName(userInfo.firstname);
+        setLastName(userInfo.lastname);
+        setDispalyEmail(userInfo.email);
+        setCheckedOutBooks(userInfo.books);
         console.log(userInfo);
+
       } catch(error) {
-        console.log(error);
+        alert(error);
       }
   }
   
@@ -54,7 +63,16 @@ const Login = () => {
         <button>Login</button>
       </form>
       <button onClick={ getUserInfo }>See Profile</button>
-      
+      {
+        token ? 
+        <>
+          <h2>Name: { firstName } { lastName }</h2> 
+          <h2>Email: { dispalyEmail }</h2>
+          <h3>Checked out books: { checkedOutBooks }</h3>
+        </>
+        :
+        null
+      }
     </>
   )
 }
