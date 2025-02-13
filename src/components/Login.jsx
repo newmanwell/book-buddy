@@ -10,7 +10,8 @@ const Login = () => {
   const [ lastName, setLastName ] = useState("");
   const [ dispalyEmail, setDispalyEmail ] = useState("");
   const [ checkedOutBooks, setCheckedOutBooks ] = useState([]);
-
+  console.log(token);
+  console.log(firstName);
   const loggingIn = async(event) => {
     event.preventDefault();
 
@@ -64,12 +65,12 @@ const Login = () => {
       {
         token ? 
         <>
-          <form>
+          <section className="details-button">
             <button onClick={ getUserInfo }>See Profile</button>
             <h2>Name: { firstName } { lastName }</h2> 
             <h2>Email: { dispalyEmail }</h2>
             <h3>Checked out books: { checkedOutBooks }</h3>
-          </form>
+          </section>
         </>
         :
         null
