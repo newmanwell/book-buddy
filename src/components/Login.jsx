@@ -47,8 +47,6 @@ const Login = () => {
         setLastName(userInfo.lastname);
         setDispalyEmail(userInfo.email);
         setCheckedOutBooks(userInfo.books);
-        console.log(userInfo);
-
       } catch(error) {
         alert(error);
       }
